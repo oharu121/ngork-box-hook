@@ -1,0 +1,70 @@
+{
+  "name": "ngork-box-hook",
+  "version": "0.1.0",
+  "description": "A new npm package",
+  "type": "module",
+  "main": "./index.js",
+  "module": "./index.mjs",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.mjs",
+      "require": "./index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "index.js",
+    "index.d.ts",
+    "index.mjs"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write \"src/**/*.{ts,js,json,md}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,js,json,md}\"",
+    "test:all": "pnpm typecheck && pnpm lint && pnpm test",
+    "check:exports": "attw --pack",
+    "prepublishOnly": "pnpm build",
+    "sync": "git pull --rebase && pnpm install && pnpm test",
+    "sync:quick": "git pull --rebase && pnpm install",
+    "release": "node scripts/release.mjs",
+    "token": "node scripts/get-token.mjs"
+  },
+  "keywords": [],
+  "author": "oharu121 <jefflin1201@gmail.com> (https://github.com/oharu121)",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "tsup": "^8.5.1",
+    "@types/node": "^24.10.1",
+    "@arethetypeswrong/cli": "^0.18.2",
+    "vitest": "^4.0.15",
+    "@vitest/coverage-v8": "^4.0.15",
+    "@eslint/js": "^9.39.1",
+    "eslint": "^9.39.1",
+    "prettier": "^3.7.4",
+    "eslint-config-prettier": "^10.1.8",
+    "@typescript-eslint/eslint-plugin": "^8.48.1",
+    "@typescript-eslint/parser": "^8.48.1",
+    "@clack/prompts": "^0.11.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oharu121/ngork-box-hook.git"
+  },
+  "bugs": {
+    "url": "https://github.com/oharu121/ngork-box-hook/issues"
+  },
+  "homepage": "https://github.com/oharu121/ngork-box-hook#readme",
+  "packageManager": "pnpm@10.21.0"
+}
